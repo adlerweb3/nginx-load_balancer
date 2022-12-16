@@ -7,3 +7,9 @@ services:
     container_name: nginx
     ports:
       - "8000:80" #Libera a porta 8000 do localhost e direciona para porta 80 do nginx
+
+  node1:
+    image: nginx:alpine
+    container_name: node1
+    ports:
+      - "80" #Libera apenas a porta 80 do nginx
