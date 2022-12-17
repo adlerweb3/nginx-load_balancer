@@ -13,27 +13,27 @@ Type: Page
 
 ![Untitled](.github/Untitled.png)
 
-Software open source que possui diversas utilizações como: Webserver, proxy reverso, caching, load balancer, media streaming, além de proxy para serviços de email.
+Open source software that has several uses such as: Webserver, reverse proxy, caching, load balancer, media streaming, as well as proxy for email services.
 
-### Principais características
+### Main features
 
-- Um dos servidores web mais potentes do mercado
-- Performa mais que o Apache
-- Consegue suportar alto volume de conexões simultâneas
-- Utiliza baixa memória e suporta alta concorrência
-- Normalmente é mais utilizado como webserver e proxy reverso
-- Mais de 50% dos sites mais acessados do mundo utilizam Nginx
-- Possui suporte aos recursos web mais modernos como Websockets, HITP 2, streaming de vídeos, etc.
+- One of the most powerful web servers on the market
+- Performs better than Apache
+- Can support high volume of simultaneous connections
+- Uses low memory and supports high concurrency
+- Usually used as a webserver and reverse proxy
+- More than 50% of the most accessed websites in the world use Nginx
+- Supports the most modern web resources such as Websockets, HITP 2, video streaming, etc.
 
-### Como funciona
+### How it works
 
 ![Untitled](.github/Untitled%201.png)
 
 ![Untitled](.github/Untitled%202.png)
 
-### Proxy reverso
+### Reverse proxy
 
-Proxy reverso é um serviço intermediário que recebe as requisições de diversos *clients*, as processa e as encaminha o serviço correspondente.
+Reverse proxy is an intermediary service that receives requests from different *clients*, processes them and forwards them to the corresponding service.
 
 ![Untitled](.github/Untitled%203.png)
 
@@ -92,9 +92,9 @@ docker compose exec nginx bash
 
 </aside>
 
-### Arquivo de configuração base do NGINX `/etc/nginx/nginx.conf`
+### NGINX base configuration file `/etc/nginx/nginx.conf`
 
-Focado para uso do sistema/tunning.
+Focused for system use/tunning.
 
 ```bash
 # open nginx.conf file inside nginx container
@@ -133,11 +133,11 @@ http {
 }
 ```
 
-As configurações do(s) site(s) deverão ser colocadas em arquivos separados atreves de *includes*.
+The settings of the site(s) must be placed in separate files through *includes*.
 
 `include /etc/nginx/conf.d/*.conf`
 
-Instalação inicial vem com um arquivo *default*:
+Initial installation comes with a *default* file:
 
 ```bash
 server {
@@ -186,12 +186,12 @@ server {
 }
 ```
 
-> ******Neste caso, está direcionando para a página de Welcome do NGINX******
+> ******In this case, it is redirecting to the Welcome page of NGINX******
 > 
 
 ![Untitled](.github/Untitled%205.png)
 
-Arquivo de configuração editado para testes:
+Edited configuration file for testing:
 
 ```bash
 server {
@@ -219,7 +219,7 @@ server {
 
 ![Untitled](.github/Untitled%207.png)
 
-Primeiro NGINX Container configurado
+First NGINX Container Configured
 
 # NGINX | Node1
 
@@ -310,19 +310,19 @@ services:
     image: nginx:alpine
     container_name: nginx
     ports:
-      - "8000:80" #Libera a porta 8000 do localhost e direciona para porta 80 do nginx
+      - "8000:80" # Release localhost port 8000 and direct to nginx port 80
 
   node1:
     image: nginx:alpine
     container_name: node1
     ports:
-      - "80" #Libera apenas a porta 80 do nginx
+      - "80" # Release only nginx port 80
 
   node2:
     image: nginx:alpine
     container_name: node2
     ports:
-      - "80" #Libera apenas a porta 80 do nginx
+      - "80" # Release only nginx port 80
 ```
 
 Edit to identify Node2 correctly:
@@ -421,9 +421,9 @@ tail —f /var/log/nginx/nginx—access.log
 
 ## IP Configs
 
-Passando os IPs externos de acesso e não o IP do NGINX PROXY
+Passing the access external IPs and not the NGINX PROXY IP
 
-Os IPs logados nos NODES são os do NGINX PROXY
+The IPs logged into the NODES are those of the NGINX PROXY
 
 ![Untitled](.github/Untitled%2011.png)
 
