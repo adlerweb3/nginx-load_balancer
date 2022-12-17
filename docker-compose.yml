@@ -13,3 +13,9 @@ services:
     container_name: node1
     ports:
       - "80" #Libera apenas a porta 80 do nginx
+
+  node2:
+    image: nginx:alpine
+    container_name: node2
+    ports:
+      - "80" #Libera apenas a porta 80 do nginx
